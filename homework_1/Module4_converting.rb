@@ -1,13 +1,26 @@
 # 13. Convert string into hex
+string = '200'
+string.to_i.to_s(16).upcase
 
-# 14. Convert float into integer # TODO: you should made vice versa operation =) float -> integer
-integer = 10
-Float(integer)
+# 14. Convert float into integer
+float = 10.1
+integer = float.to_i
 
-# 15. Convert int to float # TODO: you should made vice versa operation =) integer -> float
-float = 1.01
-Integer(float)
+# 15. Convert int to float
+integer = 100
+float = integer.to_f
 
 # 16. Convert integer to boolean
+# This method converts 0 to false and other numbers to true
+def to_boolean (value)
+    if value.zero?
+        return false
+    else
+        return true
+    end
+end
 
 # 17. Convert boolean to integer
+boolean = false
+class TrueClass; def to_i; 1; end; end
+class FalseClass; def to_i; 0; end; end
