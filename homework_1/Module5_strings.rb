@@ -14,3 +14,5 @@ lowercaseString = string.downcase
 # 21. Create string with upper and lower case letters and convert lowercase to upper case letter and vice versa
 string = "Some RAndom String"
 string.swapcase
+
+# TODO: using converting to uppercase reasign existing variable with uppercases
