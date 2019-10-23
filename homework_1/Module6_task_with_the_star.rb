@@ -6,9 +6,12 @@
 # 2. The notes are wrapped by single quotes
 # Original string `Lead,Title,Phone,Notes,Jim Grayson,Senior Manager,555761-2385,"Spoke Tuesday, he's interested",Prescilla Winston,Development Director,(555)218-3981,"said to call again next week",Melissa Potter,Head of Accounts,(555)791-3471,"Not interested, gave referral"`
 
-string = "Jim Grayson,Senior Manager,(555)761-2385,'Spoke Tuesday, he's interested',Prescilla Winston,Development Director,(555)218-3981,'said to call again next week',Melissa Potter,Head of Accounts,(555)791-3471,'Not interested, gave referral'"
+string = "Lead,Title,Phone,Notes
+Jim Grayson,Senior Manager,(555)761-2385,'Spoke Tuesday, he's interested'
+Prescilla Winston,Development Director,(555)218-3981,'said to call again next week'
+Melissa Potter,Head of Accounts,(555)791-3471,'Not interested, gave referral'"
 
-p matches = string.match(/((?<Lead>[\w\s]+)\,(?<Title>[\w\s]+)\,(?<Phone>\(...\)\d{3}\-\d{4})\,\'(?<Note>\D+)\')/)
+p matches = string.scan(/(^Lead,Title,Phone,Notes\n{1})?(?<Lead>^[\w\s]+),(?<Title>[\w\s]+)\,(?<Phone>\(...\)\d{3}\-\d{4})\,(?<Note>'\D+')$/mi)
 # Right now it parse only first contact from the list
 
 # * Write regular expression to retrieve domain name(s) from given string (urls with schema and www should be processed).
