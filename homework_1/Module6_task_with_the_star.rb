@@ -12,9 +12,12 @@ Prescilla Winston,Development Director,(555)218-3981,'said to call again next we
 Melissa Potter,Head of Accounts,(555)791-3471,'Not interested, gave referral'"
 
 p matches = string.scan(/(^Lead,Title,Phone,Notes\n{1})?(?<Lead>^[\w\s]+),(?<Title>[\w\s]+)\,(?<Phone>\(...\)\d{3}\-\d{4})\,(?<Note>'\D+')$/mi)
-# Right now it parse only first contact from the list
 
 # * Write regular expression to retrieve domain name(s) from given string (urls with schema and www should be processed).
+
+link_example = "https://github.com/maksimpanarin/ruby_homework/blob/HW-1/homework_1/Module6_task_with_the_star.rb"
+
+p urls = link_example.scan(/[http:\/\/|https:\/\/|www\.](?<Domain>\w+(\W|)\w+\.\w*)/xo).first
 
 # * Write regular expression for parsing links and links titles from simple html.
     # <div class="links">
