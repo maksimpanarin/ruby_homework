@@ -20,6 +20,12 @@ link_example = "https://github.com/maksimpanarin/ruby_homework/blob/HW-1/homewor
 p urls = link_example.scan(/[http:\/\/|https:\/\/|www\.](?<Domain>\w+(\W|)\w+\.\w*)/xo).first
 
 # * Write regular expression for parsing links and links titles from simple html.
+#the thid one isn't ready yet
+scan(/((?<Links>(?:href=\"(?:https\:\/\/www\.|https\:\/\/|www\.|)
+[\w\d]+(\W|)[\w\d]+))
+|
+(?<Titles>(?:"title\"|"desc\")\>[\w\d\s]+))/)
+
     # <div class="links">
     #   <div class="link">
     #     <a class="first-link" href="google.com">
