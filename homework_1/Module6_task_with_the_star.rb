@@ -16,11 +16,7 @@ string = "Lead,Title,Phone,Notes
 # TODO: It will be next task with start if you want)). For now make your regular expression not unique
 # p matches = string.scan(/(^Lead,Title,Phone,Notes\n{1})?(?<Lead>^[\w\s]+),(?<Title>[\w\s]+)\,(?<Phone>\(...\)\d{3}\-\d{4})\,(?<Note>'\D+')$/mi)
 
-
-
-
-
-
+p matches = string.scan(/(?<Lead>[^\s].+),(?<Title>.+),(?<Phone>.+),(?<Notes>(\w+|'.+'))/)
 
 # link_example = "https://github.com/maksimpanarin/ruby_homework/blob/HW-1/homework_1/Module6_task_with_the_star.rb"
 #
@@ -57,4 +53,13 @@ html = "<div class='links'>
       </div>"
 
 # example for help=)
-p elements = html.scan(/href='(.+)' \w/)
+#I decide that it would be more effective to create separate regexps for diffirent data
+
+p links = html.scan(/href='(.+)' \w/)
+
+p titles = html.scan(/title\W+(?<Title>.+)\</)
+
+p desc = html.scan(/desc\W+(?<Description>.+)\</)
+
+# Here is my previous asumption
+# (?:href=\'(?<Links>[^\']{1,1000}?)\')
