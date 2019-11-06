@@ -31,26 +31,27 @@ p matches = string.scan(/(?<Lead>[^\s].+),(?<Title>.+),(?<Phone>.+),(?<Notes>(\w
 # (?<Titles>(?:"title\"|"desc\")\>[\w\d\s]+))/)
 
 # TODO: html was updated since most pattern should be same.
-html = "<div class='links'>
-          <div class='link'>
-              <a href='google.com' class='first-link'>
-                  <span class='title'>Google</span>
-                    <span class='desc'>Google Inc.</span>
-                </a>
-            </div>
-            <div class='link'>
-                <a href='www.apple.com' class='second-link'>
-                  <span class='title'>Apple</span>
-                    <span class='desc'>Apple Inc.</span>
-                </a>
-            </div>
-            <div class='link'>
-                <a href='https://www.w3schools.com/' target='_blank'>
-                  <span class='title'>W3Schools</span>
-                    <span class='desc'>W3Schools Org.</span>
-              </a>
-          </div>
-      </div>"
+html =
+"<div class='links'>
+      <div class='link'>
+          <a href='google.com' class='first-link'>
+              <span class='title'>Google</span>
+                <span class='desc'>Google Inc.</span>
+            </a>
+        </div>
+        <div class='link'>
+            <a href='www.apple.com' class='second-link'>
+              <span class='title'>Apple</span>
+                <span class='desc'>Apple Inc.</span>
+            </a>
+        </div>
+        <div class='link'>
+            <a href='https://www.w3schools.com/' target='_blank'>
+              <span class='title'>W3Schools</span>
+                <span class='desc'>W3Schools Org.</span>
+          </a>
+      </div>
+  </div>"
 
 # example for help=)
 #I decide that it would be more effective to create separate regexps for diffirent data
@@ -61,5 +62,27 @@ p titles = html.scan(/title\W+(?<Title>.+)\</)
 
 p desc = html.scan(/desc\W+(?<Description>.+)\</)
 
+p single_pattern = html.scan(/href='(.+)' \w.+\n\s+.+title'>(.+)<.+\n\s+.+desc'>(.+)</)
+# navigation on first group will be `href='` - left from group
+#                                   `' \w` - right from group
+# after first group we should pass all symbold to the end of string by means of `.+`
+# Then we should pass break line and all space before next tag by means of `\n\s+`
+# Then I know that I need to pass all not needed characrest by means of `.+`
+#
+# navigation of second group will be by means of `title'>` - left from the group
+#                                                `<.` - right from the group
+# Then I need to pass all not needed chars to the end of string by means of `.+`
+# Then we should pass break line and all space before next tag by means of `\n\s+`
+# Then I know that I need to pass all not needed characrest by means of `.+`
+#
+# navigation of third group will be by means of `desc'>` - left from the group
+#                                               `<` - right from the group
+# In each group I am trying to find any character `.+` at least 1 between symbols > and <
+#
+# 3 regular expression it is good by if you have text with 300 billion symbols you will have to parse it 3 times instead of one ==)
 # Here is my previous asumption
+#
+# 1. If you don't know end length of result try to use + or * symbols instead of fixed length
+# 2. One regular expression is better then many if you can select single pattern for search
+#
 # (?:href=\'(?<Links>[^\']{1,1000}?)\')
