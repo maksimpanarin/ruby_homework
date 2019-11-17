@@ -16,3 +16,4 @@ string = "Some RAndom String"
 p string.swapcase
 
 # TODO: using converting to uppercase reasign existing variable with uppercases
+p string.upcase!
