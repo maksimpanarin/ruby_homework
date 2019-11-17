@@ -85,3 +85,6 @@ p single_pattern = html.scan(/href='(.+)' \w.+\n\s+.+title'>(.+)<.+\n\s+.+desc'>
 # 2. One regular expression is better then many if you can select single pattern for search
 #
 # (?:href=\'(?<Links>[^\']{1,1000}?)\')
+
+
+#Thanks for the explanation
