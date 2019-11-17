@@ -31,27 +31,26 @@ p matches = string.scan(/(?<Lead>[^\s].+),(?<Title>.+),(?<Phone>.+),(?<Notes>(\w
 # (?<Titles>(?:"title\"|"desc\")\>[\w\d\s]+))/)
 
 # TODO: html was updated since most pattern should be same.
-html =
-"<div class='links'>
-      <div class='link'>
-          <a href='google.com' class='first-link'>
-              <span class='title'>Google</span>
-                <span class='desc'>Google Inc.</span>
-            </a>
-        </div>
-        <div class='link'>
-            <a href='www.apple.com' class='second-link'>
-              <span class='title'>Apple</span>
-                <span class='desc'>Apple Inc.</span>
-            </a>
-        </div>
-        <div class='link'>
-            <a href='https://www.w3schools.com/' target='_blank'>
-              <span class='title'>W3Schools</span>
-                <span class='desc'>W3Schools Org.</span>
-          </a>
-      </div>
-  </div>"
+html = "<div class='links'>
+          <div class='link'>
+              <a href='google.com' class='first-link'>
+                  <span class='title'>Google</span>
+                    <span class='desc'>Google Inc.</span>
+                </a>
+            </div>
+            <div class='link'>
+                <a href='www.apple.com' class='second-link'>
+                  <span class='title'>Apple</span>
+                    <span class='desc'>Apple Inc.</span>
+                </a>
+            </div>
+            <div class='link'>
+                <a href='https://www.w3schools.com/' target='_blank'>
+                  <span class='title'>W3Schools</span>
+                    <span class='desc'>W3Schools Org.</span>
+              </a>
+          </div>
+      </div>"
 
 # example for help=)
 #I decide that it would be more effective to create separate regexps for diffirent data
