@@ -33,3 +33,6 @@ file = File.open("files/sample.csv","r")
 file.close()
 
 p csv
+
+# 2.
+p clients = csv.scan(/(.+),(.+),(.+),(.+),(.+)/)
