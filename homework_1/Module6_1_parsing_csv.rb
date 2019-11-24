@@ -35,9 +35,17 @@ File.open("files/sample.csv", "r") do |file|
   file.each_with_index { |val, index| index == 0 ? client_keys.append(val) : clients_values.append(val) }
 end
 
-puts clients_values[0]
-
 keys = client_keys[0].split(',')
+keys = keys.map {|key| key.strip.to_sym}
+
+# hash = Hash.new
+# keys.each {|key| hash[key] = nil}
+
+# clients_values.each do |line|
+#   client = line.split(',')
+#   person = client.each {|field| hash[key] = hash[field]}
+#   puts person
+# end
 
 for client in clients_values
   values = client.split(',')
@@ -47,7 +55,7 @@ for client in clients_values
   person = {}
   while value_index < length
     while key_index < length
-      person[keys[key_index].strip] = values[value_index].strip
+      person[keys[key_index]] = values[value_index].strip
       key_index += 1
       value_index += 1
     end
@@ -56,3 +64,24 @@ for client in clients_values
 end
 
 puts persons
+
+class Person
+  attr_accessor :first_name, :last_name, :job_title, :bank_account_number, :isActive
+ 
+  def initialize (hash)
+    keys = hash.keys
+    @first_name = hash[keys[0]]
+    @last_name = hash[keys[1]]
+    @job_title = hash[keys[2]]
+    @bank_account_number = hash[keys[3]]
+    @isActive = hash[keys[4]]
+  end
+end
+
+ivan = Person.new(persons[0])
+
+p ivan.first_name
+p ivan.last_name
+p ivan.job_title
+p ivan.bank_account_number
+p ivan.isActive

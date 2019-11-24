@@ -1,4 +1,4 @@
-first_name,last_name,job_title,bank_account_number,active (true or false)
+first_name,last_name,job_title,bank_account_number,active
 Jim,Grayson,Senior Manager,5557612385,true
 Prescilla,Winston,Development Director,5552183981,false
 Melissa,Potter,Head of Accounts,5557913471,true
