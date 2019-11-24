@@ -27,12 +27,32 @@
 # Тоесть ты будешь создавать обьекты не через конструктор на прямую а через метод фабрику. 
 # Скажем пусть он называется from_csv_row(row). А в реализации метода уже вызывается конструктор для инициализации всех полей
 
-# 1.
-file = File.open("files/sample.csv","r")
-  csv = file.read()
-file.close()
+clients_values = []
+client_keys = []
+persons = []
 
-p csv
+File.open("files/sample.csv", "r") do |file|
+  file.each_with_index { |val, index| index == 0 ? client_keys.append(val) : clients_values.append(val) }
+end
 
-# 2.
-p clients = csv.scan(/(.+),(.+),(.+),(.+),(.+)/)
+puts clients_values[0]
+
+keys = client_keys[0].split(',')
+
+for client in clients_values
+  values = client.split(',')
+  key_index = 0
+  value_index = 0
+  length = values.length
+  person = {}
+  while value_index < length
+    while key_index < length
+      person[keys[key_index].strip] = values[value_index].strip
+      key_index += 1
+      value_index += 1
+    end
+  end
+  persons.append(person)
+end
+
+puts persons
