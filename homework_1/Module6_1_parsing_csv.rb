@@ -27,6 +27,10 @@
 # Тоесть ты будешь создавать обьекты не через конструктор на прямую а через метод фабрику. 
 # Скажем пусть он называется from_csv_row(row). А в реализации метода уже вызывается конструктор для инициализации всех полей
 
+def true?(obj)
+  obj.to_s.downcase == "true" ? true : false
+end
+
 clients_values = []
 client_keys = []
 persons = []
@@ -74,11 +78,11 @@ class Person
     @last_name = hash[keys[1]]
     @job_title = hash[keys[2]]
     @bank_account_number = hash[keys[3]]
-    @isActive = hash[keys[4]]
+    @isActive = true?(hash[keys[4]])
   end
 end
 
-ivan = Person.new(persons[0])
+ivan = Person.new(persons[1])
 
 p ivan.first_name
 p ivan.last_name
