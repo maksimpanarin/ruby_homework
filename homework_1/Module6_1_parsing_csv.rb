@@ -38,7 +38,7 @@ values = []
 persons = []
 
 File.open("files/sample.csv", "r") do |file|
-  file.each_with_index { |val, index| index == 0 ? client_keys.append(val) : clients_values.append(val) }
+  file.each_with_index { |val, index| index == 0 ? client_keys.append(val) : clients_values.append(val.strip) }
 end
 
 keys = client_keys[0].split(',')
