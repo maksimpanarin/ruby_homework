@@ -33,6 +33,8 @@ end
 
 clients_values = []
 client_keys = []
+keys = []
+values = []
 persons = []
 
 File.open("files/sample.csv", "r") do |file|
@@ -42,32 +44,31 @@ end
 keys = client_keys[0].split(',')
 keys = keys.map {|key| key.strip.to_sym}
 
-# hash = Hash.new
-# keys.each {|key| hash[key] = nil}
-
-# clients_values.each do |line|
-#   client = line.split(',')
-#   person = client.each {|field| hash[key] = hash[field]}
-#   puts person
-# end
-
-for client in clients_values
-  values = client.split(',')
-  key_index = 0
-  value_index = 0
-  length = values.length
-  person = {}
-  while value_index < length
-    while key_index < length
-      person[keys[key_index]] = values[value_index].strip
-      key_index += 1
-      value_index += 1
-    end
-  end
-  persons.append(person)
+clients_values.each do |line|
+  client = line.split(',')
+  values << client
 end
 
-puts persons
+values.each {|line|
+  hash = keys.zip(line).to_h
+  persons << hash
+}
+
+# for client in clients_values
+#   values = client.split(',')
+#   key_index = 0
+#   value_index = 0
+#   length = values.length
+#   person = {}
+#   while value_index < length
+#     while key_index < length
+#       person[keys[key_index]] = values[value_index].strip
+#       key_index += 1
+#       value_index += 1
+#     end
+#   end
+#   persons.append(person)
+# end
 
 class Person
   attr_accessor :first_name, :last_name, :job_title, :bank_account_number, :isActive
