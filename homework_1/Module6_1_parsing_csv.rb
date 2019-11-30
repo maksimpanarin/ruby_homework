@@ -73,13 +73,12 @@ values.each {|line|
 class Person
   attr_accessor :first_name, :last_name, :job_title, :bank_account_number, :isActive
  
-  def initialize (hash)
-    keys = hash.keys
-    @first_name = hash[keys[0]]
-    @last_name = hash[keys[1]]
-    @job_title = hash[keys[2]]
-    @bank_account_number = hash[keys[3]]
-    @isActive = true?(hash[keys[4]])
+  def initialize (first_name, last_name, job_title, bank_account_number, isActive)
+    @first_name = first_name
+    @last_name = last_name
+    @job_title = job_title
+    @bank_account_number = bank_account_number
+    @isActive = isActive 
   end
 end
 
