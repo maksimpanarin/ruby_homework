@@ -9,3 +9,5 @@ $float_global_variable = 1.234
 
 #8. Create boolean global variable
 $sboolean_global_variable = false
+
+# DONE
