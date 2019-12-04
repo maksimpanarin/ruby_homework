@@ -70,6 +70,12 @@ values.each {|line|
 #   persons.append(person)
 # end
 
+def from_hash (hash)
+  hash.each_value {|value| p value}
+end
+
+p from_hash(persons[0])
+
 class Person
   attr_accessor :first_name, :last_name, :job_title, :bank_account_number, :isActive
  
@@ -82,10 +88,10 @@ class Person
   end
 end
 
-ivan = Person.new(persons[1])
+# ivan = Person.new(from_hash(persons,0))
 
-p ivan.first_name
-p ivan.last_name
-p ivan.job_title
-p ivan.bank_account_number
-p ivan.isActive
+# p ivan.first_name
+# p ivan.last_name
+# p ivan.job_title
+# p ivan.bank_account_number
+# p ivan.isActive
