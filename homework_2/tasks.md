@@ -7,3 +7,7 @@
 5. There are 2 sets exists. Please print results of next operations: union, intersect, difference[docs](https://ruby-doc.org/stdlib-2.6.5/libdoc/set/rdoc/Set.html)
 6. There are 2 lists exists with N elements. combine them into one with unique elements
 7. There are tuple and list exists. print same element from tuple and list [docs](https://www.rubydoc.info/github/rubyworks/facets/Tuple)
+8. Create Struct data structure for describing next entities: Deposit, Loan. 
+Deposit should contain next fields: balance, id, date_created, date_closed, loans.
+Loan should contain next fields: id outstanding date_created, date_closed
+9. Create same structures with OpenStruct data structure type
