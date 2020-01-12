@@ -3,7 +3,7 @@
 # Loan should contain next fields: id outstanding date_created, date_closed
 
 require "ostruct"
-
+# TODO: loans is a list of Loan antities. Create several loans and put into argument of deposit
 Deposit = OpenStruct.new(:balance => 20000, :id => 1, "date_created" => "2001-02-03", :date_closed => "2001-12-03", :loans => 666 )
 
 p Deposit
