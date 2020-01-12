@@ -1,9 +1,10 @@
+**_Combination of work in console and settings in github**_ 
 1) Create new project name: ruby-practice; Visibility level: private; Initialize with README: false
 2) Setup SSH key to local ${user.home}/.ssh directory (let it be ED25519 without passphrase)
 3) Add public SSH to GitLab
 4) Invite access to your repository for my account nikita.limarchuk@gmail.com (as Developer)
 
-Working with Git bash:
+**`Working with Git bash`**:
 5) Clone project to your workstation using git-protocol with ssh
 6) Check the global user settings, if something is wrong - redefine them
 8) Create new branches master_rebase, master_merge, primary, secondary
@@ -29,5 +30,12 @@ Working with Git bash:
 25) Do 'git reflog show --all' command and save output to git-reflog.txt and attach it to your LMS-sys homework
 26) Visualize graph of git branches and commits in git bash or IDE console=)
 
-On GitLab:
+**`On github`**:
 27) Create MR (merge request) from develop branch to master, me as approver, delete source branch after merge option: false
+
+**`Docs`**:\
+[git commands source 1](https://dzone.com/articles/top-20-git-commands-with-examples)\
+[git commands source 2](https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html)\
+[git commands source 3](https://stackoverflow.com/questions/1838873/visualizing-branch-topology-in-git)\
+[best doc I have ever seen](https://www.atlassian.com/git/tutorials/git-log)\
+[generating ssh key pair doc](https://www.ssh.com/ssh/keygen)
